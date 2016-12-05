@@ -270,18 +270,26 @@ function weekdayColor(d) {
 }
 
 function filterCitationByFine(){
-    console.log(fineFilterVal);
-    d3.selectAll('.point-shape').style('opacity', function(d){
+    
+    // d3.selectAll('.point-shape').style('opacity', function(d){
+    //     if (+d.ViolFine < fineFilterVal) {
+    //         return 0;
+    //     } else {
+    //         console.log(+d.ViolFine);
+    //         return 0.35;
+    //     }
+    // });
+     d3.selectAll('.point-shape').attr('r',  function(d){
         if (+d.ViolFine < fineFilterVal) {
             return 0;
         } else {
-            return 0.35;
+            console.log(+d.ViolFine);
+            return 2;
         }
     });
 }
 
 function updateMinFine(minFine){
-    console.log(minFine);
     fineFilterVal = +minFine;
     d3.select("#min-fine-value").text('$' + minFine);
     d3.select("#min-fine").property("value", minFine);
