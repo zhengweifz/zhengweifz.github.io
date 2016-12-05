@@ -1,0 +1,2 @@
+*.csv
+../Parking_Citations.csv ../clean_data.csv ../clean_data_2016.csv ../data_with_geo_neighborhood.csv

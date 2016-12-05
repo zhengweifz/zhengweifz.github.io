@@ -1,0 +1,33 @@
+.d3-tooltip {
+  margin-top: 5px;
+  width: 450px;
+  height: 650px;
+  position: absolute;
+  z-index: 100;
+  line-height: 1;
+  font-weight: bold;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  text-align: left;
+  border-radius: 10px;
+}
+/*.bar { fill: steelblue; }*/
+.select {
+    margin-left: 50px;
+}
+/* Creates a small triangle extender for the tooltip */
+/*.d3-tooltip::before {
+  left: 45px;
+  top:  0px;
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25B2";
+  position: absolute;
+  text-align: center;
+  margin-top: -7px
+}*/
+
