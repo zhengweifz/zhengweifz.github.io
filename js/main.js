@@ -43,7 +43,7 @@ function plotArea(data){
             .attr('id', "heatmap")
             .style('vertical-align','top')
             .style('display', 'inline-block')
-            .style('width','50%')
+            .style('width','60%')
             .style('height', '100%')
             .append('svg')
             .attr('id', 'headmapsvg')
@@ -192,7 +192,7 @@ function hideTooltip() {
 //legend section
 // legend codes are based on the example on http://bl.ocks.org/nowherenearithaca/4449376
 function createLegend(color, countMin, countMax) {
-     var legendX1 = 650,
+     var legendX1 = 600,
          legendWidth = 30,
          lengendY1 = 100,
          legendHeight = 200;
