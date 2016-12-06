@@ -343,8 +343,8 @@ function createControls(data) {
                                       .attr('y', function(d){
                                              return proj([+d.Longitude, +d.Latitude])[1]-2;
                                       })
-                                      .attr('width',5)
-                                      .attr('height', 5)
+                                      .attr('width',4)
+                                      .attr('height', 4)
                                       .attr('fill', weekdayColor)
                                       .style("opacity", 0.35)
                                       .attr('stroke', stateStroke)
