@@ -1,7 +1,7 @@
 .d3-tooltip {
   margin-top: 5px;
-  width: 450px;
-  height: 650px;
+  /*width: 450px;
+  height: 650px;*/
   position: absolute;
   z-index: 100;
   line-height: 1;

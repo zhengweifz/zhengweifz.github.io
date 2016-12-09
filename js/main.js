@@ -108,6 +108,9 @@ function plotArea(data){
               .on('mouseover', function(d) {
                   d3.event.stopPropagation();
                   d3.select(this).style("cursor", "pointer");
+                //   var cenLoc = path.centroid(d);
+                //   showTooltip(d, cenLoc, 'area'); 
+
               })
               .on('mouseout', function (d) {
                 //   d3.event.stopPropagation();
@@ -117,6 +120,7 @@ function plotArea(data){
                 //     var curPath = d3.select(d3.event.currentTarget);
                 //     curPath.attr('opacity', 0.7);
                 //     tooltip.style('visibility', 'hidden');
+                hideTooltip();
              });
     areas = areas.merge(gs);  
    createLegend(color, countMin, countMax);
@@ -139,7 +143,7 @@ function plotCitation(d, shape) {
             .on('mouseover', function(d) {
                         // display tooltip 
                         var cenLoc = proj([+d.Longitude, +d.Latitude]);
-                        showTooltip(d, cenLoc); 
+                        showTooltip(d, cenLoc, 'citation'); 
               })
             .on('mouseout', function(d){
                 hideTooltip();
@@ -168,18 +172,36 @@ function createTooltip() {
         ;
 }
 
-function showTooltip(d, cenLoc) {
+function showTooltip(d, cenLoc, target) {
     //  d3.select('.nhs-name').text(d.properties.csa);
     //  d3.select('.count-value').text(d.properties.citation_count);
     var tooltip = d3.select('#tooltip');
     tooltip.select('ul').remove();
     var ul = tooltip.append('ul').style("list-style", "none");
-    for (var key in d) {
-        if (d.hasOwnProperty(key)) {
-            var li = ul.append("li").style('margin-top', '5px');
-            li.append('label').text(key + ": ").style('margin-right', '15px'); 
-            li.append('label').text(d[key]);
-        }
+    switch (target) {
+        case 'area':
+            ul.append('li').style('margin-top', '5px')
+                            .text('Click once to show summary information.')
+                            .style('margin-right', '15px');
+            ul.append('li').style('margin-top', '5px')
+                            .text('Click once to show summary information.')
+                            .style('margin-right', '15px');
+            tooltip.style('width', '300px')
+                   .style('height', '200px');
+            break;
+        case 'citation':
+            for (var key in d) {
+                if (d.hasOwnProperty(key)) {
+                    var li = ul.append("li").style('margin-top', '5px');
+                    li.append('label').text(key + ": ").style('margin-right', '15px'); 
+                    li.append('label').text(d[key]);
+                }
+                }
+            tooltip.style('width', '450px')
+                   .style('height', '650px');
+            break;
+        default:
+            break;
     }               
      d3.select('#tooltip').style('top', (cenLoc[1]) + 'px')
                                 .style('left', (cenLoc[0]) + 'px')
